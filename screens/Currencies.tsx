@@ -1,18 +1,18 @@
-import { StatusBar } from "expo-status-bar";
 import * as React from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 import CurrenciesList from "../components/CurrenciesList";
 
-export default function ModalScreen() {
+import { RootTabScreenProps } from "../types";
+
+export default function Currencies({
+  navigation,
+}: RootTabScreenProps<"Currencies">) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
+      <Text style={styles.title}>Currencies List</Text>
       <View style={styles.separator} />
-      <CurrenciesList path="/screens/ModalScreen.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+      <CurrenciesList path="/screens/TabOneScreen.tsx" />
     </View>
   );
 }
